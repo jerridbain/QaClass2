@@ -1,0 +1,77 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1588194163284' stop='1588194169400'>
+    <name>As a User, test the Dynamic Loading page example 1</name>
+    <title>As a User, test the Dynamic Loading page example 1</title>
+    <test-cases>
+        <test-case start='1588194163284' status='passed' stop='1588194163915'>
+            <name>Given I go to the Dynamic Loading page</name>
+            <title>Given I go to the Dynamic Loading page</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1588194163916' status='passed' stop='1588194164075'>
+            <name>Then verify the elements exist</name>
+            <title>Then verify the elements exist</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1588194164075' status='passed' stop='1588194164274'>
+            <name>When I click on example 1</name>
+            <title>When I click on example 1</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1588194164275' status='passed' stop='1588194164364'>
+            <name>And I click start</name>
+            <title>And I click start</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1588194164364' status='passed' stop='1588194169399'>
+            <name>Then verify "Hello World" exist</name>
+            <title>Then verify "Hello World" exist</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-1'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
