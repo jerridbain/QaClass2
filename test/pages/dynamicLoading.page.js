@@ -27,6 +27,8 @@ class dynamicLoading extends basePage {
 
     }
 
+    
+
     clickExampleOne() {
         this.dynLoadEx1.waitForDisplayed()
         this.dynLoadEx1.click()

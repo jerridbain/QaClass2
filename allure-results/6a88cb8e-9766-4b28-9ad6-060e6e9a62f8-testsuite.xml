@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1588194000804' stop='1588194001563'>
+    <name>As a User, smoke test the Dynamic Loading page</name>
+    <title>As a User, smoke test the Dynamic Loading page</title>
+    <test-cases>
+        <test-case start='1588194000805' status='passed' stop='1588194001448'>
+            <name>Given I go to the Dynamic Loading page</name>
+            <title>Given I go to the Dynamic Loading page</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1588194001448' status='passed' stop='1588194001562'>
+            <name>Then verify the elements exist</name>
+            <title>Then verify the elements exist</title>
+            <labels>
+                <label name='language' value='javascript'/>
+                <label name='framework' value='wdio'/>
+                <label name='thread' value='0-0'/>
+            </labels>
+            <parameters>
+                <parameter kind='argument' name='browser' value='chrome-81.0.4044.129'/>
+            </parameters>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

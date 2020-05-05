@@ -32,7 +32,7 @@ describe('As a user, test the file download page', () => {
         downloadPage.links.forEach(link => {
 
             if (!link.getHTML().includes('GitHub') && link.getText() 
-            !== "Elemental Selenium" && link.getText() !== "[2020-03-18] Daily Status report.docx") {
+            !== "Elemental Selenium") {
 
                 // get the name
                 titles.push(link.getText())
