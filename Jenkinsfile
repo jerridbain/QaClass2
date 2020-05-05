@@ -6,7 +6,7 @@ pipeline {
    stages {
       stage('clone the repo') {
          steps {
-            git 'https://github.com/jerridbain/tr_qa_class'
+            git 'https://github.com/jerridbain/QaClass2.git'
          }
       }
       
