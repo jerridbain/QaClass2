@@ -235,7 +235,6 @@ exports.config = {
         if (test.error !== undefined) {
             browser.takeScreenshot();
         }
-        
     },
     /**
      * Hook that gets executed after the suite has ended
