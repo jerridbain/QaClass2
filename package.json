@@ -6,7 +6,7 @@
   "scripts": {
     "test": "./node_modules/.bin/wdio wdio.conf.js --spec",
     "test-suite": "./node_modules/.bin/wdio wdio.conf.js --suite",
-    "report": "allure generate allure-results/ && allure open"
+    "report": "allure generate allure-results/ && allure open --clean"
     
   },
   "keywords": [],
