@@ -3,6 +3,8 @@ const fs = require('fs');
 
 const headless = process.env.headless;
 
+const { addFeature } = require('@wdio/allure-reporter').default
+
 
 global.downloadDir = path.join(__dirname, 'tempDownload');
 
@@ -150,7 +152,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter.html
     reporters: ['spec', ['allure', {
-        outputDir: 'allure-results',
+        outputDir: './allure-results',
         disableWebdriverStepsReporting: true,
         disableWebdriverScreenshotsReporting: true,
     }]],
