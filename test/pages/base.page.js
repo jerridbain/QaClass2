@@ -1,34 +1,24 @@
+const base = {}
+
+// Locator
+
+base.header = () => { return $('h3') }
+
+base.header = () => { return $('//*[@id="content"]/h1') }
 
 
-export default class basePage {
 
-    get mainHeader() {
-        return $('h1')
-    }
+//functions
 
-    get subHeader() {
-        return $('h2')
-    }
+base.goToBasePage = () => {
+    console.log('step: looking for base page')
 
-    
-        
-    goToHomePage() {
+    browser.url('/')
 
-        console.log('step: going to home page')
+    base.header().waitForDisplayed()
 
-        browser.url('/')
-
-        this.mainHeader.waitForDisplayed()
-
-        console.log('step: on the home page')
-    }  
-    
-    //** Utilities */
-
-    assert(assertion, timeout) {
-        browser.waitUntil(()=>{
-            return assertion;
-        }, timeout)
-    }
-
+    console.log('step: found for base page')
 }
+
+module.exports = base
+

@@ -1,20 +1,26 @@
-import basePage from './base.page'
+const drp = {}
 
-class dropDown extends basePage {
+// Locator
 
-    get selectDropDown() { return $('//*[@id="dropdown"]') }
+drp.header = () => { return $('h3') }
 
-    goToDropDown() {
+drp.header = () => { return $('//*[@id="content"]/div/h3') }
 
-        console.log('step: going to dropdown page')
 
-        browser.url('/dropdown')
+drp.id = () => { return $$('//*[@id="dropdown"]') }
 
-        this.selectDropDown.waitForDisplayed()
 
-        console.log('step: on the dropdown page')
-    }    
 
+//functions
+
+drp.goToDropDown = () => {
+    console.log('step: looking for drop down page')
+
+    browser.url('/dropdown')
+
+    drp.header().waitForDisplayed()
+
+    console.log('step: found for drop down page')
 }
 
-    export default new dropDown()
+module.exports = drp

@@ -1,20 +1,21 @@
-import basePage from './base.page'
+const dol = {}
 
-class downloadPage extends basePage {
+// Locator
 
-    get links() { return $$ ('a') }
+dol.header = () => { return $('h3') }
 
-    goToDownload() {
+dol.header = () => { return $('//*[@id="content"]/div/h3') }
 
-        console.log('step: going to download page')
+//functions
 
-        browser.url('/download')
+dol.goToDownload = () => {
+    console.log('step: looking for download page')
 
-        this.links[0].waitForDisplayed()
+    browser.url('/download')
 
-        console.log('step: on the download page')
-    }    
+    dol.header().waitForDisplayed()
 
+    console.log('step: found for download page')
 }
 
-export default new downloadPage()
+module.exports = dol
