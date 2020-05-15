@@ -6,7 +6,9 @@ base.header = () => { return $('h3') }
 
 base.header = () => { return $('//*[@id="content"]/h1') }
 
+base.subheader = () => { return $('h2') }
 
+base.subheader = () => { return $('//*[@id="content"]/h2') }
 
 //functions
 

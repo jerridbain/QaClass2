@@ -8,16 +8,20 @@ describe('Smoke test Base page', () => {
     });
 
     it('Then validate the Base header exist', () => {
-        base.header().isExisting()
+        base.header().isExisting() 
+        
+        
+    });
+
+    it('Then validate the Sub header exist', () => {
+        base.subheader().isExisting()
         
     });
 
     
-    
-    
 
     
-
+   
 
 
 });
