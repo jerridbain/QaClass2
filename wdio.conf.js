@@ -189,16 +189,28 @@ exports.config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // beforeSession: function (config, capabilities, specs) {
-    // },
+    beforeSession: function (config, capabilities, specs) {
+        require('must/register')
+        require('dotenv').config()
+
+    },
     /**
      * Gets executed before test execution begins. At this point you can access to all global
      * variables like `browser`. It is the perfect place to define custom commands.
      * @param {Array.<Object>} capabilities list of capabilities details
      * @param {Array.<String>} specs List of spec file paths that are to be run
      */
-    // before: function (capabilities, specs) {
-    // },
+    before: function (capabilities, specs) {
+        //set download behavior
+        browser.sendCommand('Page.setDownloadBehavior', { 'behavior': 'allow', 'downloadPath': downloadDir })
+
+
+        // mkdir download dir
+        if (!fs.existsSync(downloadDir)) {
+            fs.mkdirSync(downloadDir)
+            
+        }
+    },
     /**
      * Runs before a WebdriverIO command gets executed.
      * @param {String} commandName hook command name

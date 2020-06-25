@@ -1,4 +1,4 @@
-import dropDown from '..//../pages/dropDown.page'
+const dropDown = require('../../pages/dropDown.page')
 
 describe('As a user, test the dropdown page\'s default setting', () => {
 

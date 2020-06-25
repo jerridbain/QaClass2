@@ -8,6 +8,11 @@ dyn.pTags = () => { return $$('//h3/following-sibling::p') }
 
 dyn.aTags = () => { return $$('//h3/following-sibling::a') }
 
+dyn.startBtn = () => { return $('button=Start') }
+
+dyn.helloWorld = () => { return $('//div[@id="finish"]/h4') }
+
+
 //functions
 
 dyn.goToDynamicLoading = () => {

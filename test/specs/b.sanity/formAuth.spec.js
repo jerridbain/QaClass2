@@ -1,61 +1,52 @@
-import formAuthPage from "../../pages/formAuth.page";
-import inputs from "../../data/inputs.json"
+const form = require('../../pages/formAuth.page')
+const creds = require('../../data/inputs')
 
+describe('As a user, test missing un', () => {
 
-describe('As a user, test the invalid user input', () => {
-
-    it('Given I am on the Form Authentication page', () => {
-        formAuthPage.gotoFormAuth()
+    it('Given I am on the login page', () => {
+        form.gotoFormAuth()
     });
 
-    it('When I enter the incorrect username', () => {
-        formAuthPage.formAuthUsername.waitForDisplayed()  
-        formAuthPage.formAuthUsername.setValue(inputs[0].un)      
+    //enter only the login pw
+
+    it('When I enter the ony the password', () => {      
+        form.pw().setValue('process.env.pw') 
+        form.button().click()    
     });
 
-    it('And I enter the correct password', () => {
-        formAuthPage.formAuthPassword.waitForDisplayed()
-        formAuthPage.formAuthPassword.setValue(inputs[0].pw);
-
-        formAuthPage.formAuthLoginBtn.click()
-    });
-
-    it('Then validate the error invalid username message', () => {
-        formAuthPage.formAuthErrorFlash.waitForDisplayed()
-        formAuthPage.assert(formAuthPage.formAuthErrorFlash.getText().
-        includes(inputs[0].expectedBanner),30000)
-
-        
+    it('Then verify the invaild username banner', () => {
+        form.flash().waitForDisplayed()
+        form.flash().getText().includes('invaild')
     });
 
     
+    
 });
 
-describe('As a user, test the invalid user input', () => {
+describe('As a user, test correct credentials', () => {
 
-    it('Given I am on the Form Authentication page', () => {
-        formAuthPage.gotoFormAuth()
+    it('Given I am on the login page', () => {
+        form.gotoFormAuth()
     });
 
-    it('When I enter the incorrect username', () => {
-        formAuthPage.formAuthUsername.waitForDisplayed()  
-        formAuthPage.formAuthUsername.setValue(inputs[1].un)      
-    });
-
-    it('And I enter the correct password', () => {
-        formAuthPage.formAuthPassword.waitForDisplayed()
-        formAuthPage.formAuthPassword.setValue(inputs[1].pw);
-
-        formAuthPage.formAuthLoginBtn.click()
-    });
-
-    it('Then validate the error invalid username message', () => {
-        formAuthPage.formAuthErrorFlash.waitForDisplayed()
-        formAuthPage.assert(formAuthPage.formAuthErrorFlash.getText().
-        includes(inputs[1].expectedBanner),30000)
-
+    it('When I enter the correct username and  password', () => {
+        form.un().setValue('process.env.un')
+        form.pw().setValue('process.env.pw')
+        form.button().click()    
         
     });
+
+    it('Then verify the invaild logged in  banner', () => {
+        form.flash().waitForDisplayed()
+        form.flash().getText().includes("logged in")
+    });
+
+    
+    
+        
+
+        
+  
 
     
 });

@@ -1,28 +1,25 @@
-import basePage from './base.page'
+const form = {}
+
+// Locators
+
+form.un = () => { return $('#username') }
+form.pw = () => { return $('#password') }
+form.button = () => { return $('button')}
+form.flash = () => { return $('#flash') }
 
 
-class formAuth extends basePage {
+form.gotoFormAuth = () => {
+    console.log('step: looking for form auth');
 
-    get formAuthUsername() { return $('//*[@id="username"]') }
-    
-    get formAuthPassword() { return $('//*[@id="password"]') }    
-    
-    get formAuthLoginBtn() { return $('//*[@id="login"]/button') }
+    browser.url('/login')
 
-    get formAuthErrorFlash() { return $('//*[@id="flash"]') }
+    form.button().waitForDisplayed()
 
-    gotoFormAuth() {
-
-        console.log('step: going to form auth page')
-
-        browser.url('/login')
-
-        this.formAuthUsername.waitForDisplayed()
-
-        console.log('step: on the form auth page')
-
-    }
+    console.log('step: on form auth')
 
 }
 
-export default new formAuth ()
+    
+    
+
+module.exports = form;
