@@ -1,56 +1,56 @@
-import dynamicLoadingPage from "../../pages/dynamicLoading.page";
+const dyn = require('../../pages/dynamic.page')
 
-describe('As a User, test the Dynamic Loading page example 1', () => {
+describe('As a User test the dynamic loading page', () => {
 
-    it('Given I go to the Dynamic Loading page', () => {
-        dynamicLoadingPage.goToDynamicLoading()        
+
+    it('Given I am on the dynamic loading page', () => {
+        dyn.goToDynamicLoading()
     });
+
+    it('When I click on example one', () => {
+        dyn.aTags()[0].waitForDisplayed()
+        dyn.aTags()[0].click()
+    });
+
+    it('And click on the start button', () => {
+        dyn.startBtn().waitForDisplayed()
+        dyn.startBtn().click()
+
+    });
+
+    it('Then verify Hello World exist', () => {
+        dyn.helloWorld().waitForDisplayed()
+        dyn.helloWorld().getText().must.equal('Hello World!')
     
-    it('Then verify the elements exist', () => {
-        dynamicLoadingPage.dynLoadPara1.waitForDisplayed()
-        dynamicLoadingPage.dynLoadPara2.waitForDisplayed()
-        dynamicLoadingPage.dynLoadEx1.waitForDisplayed()        
-        dynamicLoadingPage.dynLoadEx2.waitForDisplayed()
-    })
+    });
+
     
-    it('When I click on example 1', () => {
-        
-        dynamicLoadingPage.clickExampleOne()
-        
+});
+
+describe('As a User test the dynamic loading page', () => {
+
+
+    it('Given I am on the dynamic loading page', () => {
+        dyn.goToDynamicLoading()
     });
 
-    it('And I click start', () => {
-        dynamicLoadingPage.clickStart()
-
+    it('When I click on example two', () => {
+        dyn.aTags()[1].waitForDisplayed()
+        dyn.aTags()[1].click()
     });
 
-    it('Then verify "Hello World" exist', () => {
-        $('h4*=Hello').waitForDisplayed()
-    });
-
-}); 
-
-describe('As a User, test the Dynamic Loading page example 2', () => {
-
-    it('Given I go to the Dynamic Loading page', () => {
-        dynamicLoadingPage.goToDynamicLoading()        
-    });
-
-    it('When I click on example 2', () => {
-        
-        dynamicLoadingPage.clickExampleTwo()
-        
-    });
-
-    it('And I click start', () => {
-        dynamicLoadingPage.clickStart()
+    it('And click on the start button', () => {
+        dyn.startBtn().waitForDisplayed()
+        dyn.startBtn().click()
 
     });
 
-    it('Then verify "Hello World" exist', () => {
-        $('h4*=Hello').waitForDisplayed()
+    it('Then verify Hello World exist', () => {
+        dyn.helloWorld().waitForDisplayed()
+        dyn.helloWorld().getText().must.equal('Hello World!')
+    
     });
 
-});    
-
+    
+});
 

@@ -1,72 +1,56 @@
-import downloadPage from "../../pages/download.page";
-import {link} from 'fs'
+const download = require('../../pages/download.page')
+const downloadDir = './tempDownload'
 
 const fs = require('fs')
 const path = require('path')
 
-const downloadDir = './tempDownload'
-
 let titles = []
-
 let files = []
 
-describe('As a user, test the file download page', () => {
 
-    before('setup', () => {
-        browser.sendCommand('Page.setDownloadBehavior', { 'behavior':
-        'allow', 'downloadPath': downloadDir })
-
-        if (!fs.existsSync(downloadDir)) {
-            fs.mkdirSync(downloadDir)
-            
-        }
-    });
-
-    it('Given I go to the file Downloads page', () => { 
-        downloadPage.goToDownload()
+describe('As a user, test ability to download links', () => {
     
+
+
+    it('Given I am on the file download page', () => {
+        download.goToDownload()
     });
 
-    it('When I click on all of the downloads', () => {
+    it('When I click on all of the links', () => {
+        download.links().forEach((link)=> {
 
-        downloadPage.links.forEach(link => {
-
-            if (!link.getHTML().includes('GitHub') && link.getText() 
-            !== "Elemental Selenium") {
-
-                // get the name
-                titles.push(link.getText())
-                //click the link
-                link.click()
-            }
+            if (link.getText() !== 'Elemental Selenium' && !link.getHTML().includes('github')) {
                 
-            
-            
+                titles.push(link.getText())
+                link.click()
+                
+            }
+
+
         })
-
-
     });
 
-    it('Then verify the downloads exist', () => { 
-
+    it('Then verify that the downloads exist', () => {
+        
         files = fs.readdirSync(downloadDir)
 
-        files.forEach(file => {
-            console.log(file)
-            downloadPage.assert(titles.includes(file))
-        })
-    
-    
+        
+        files.length.must.equal(titles.length)
     });
 
-    after('cleanup', () => {
-           files.forEach(file => {
-                fs.unlinkSync(path.join(downloadDir, file))
-
+    it('And verify the titles are equal', () => {
+        
+        files.forEach((file)=> {
+            titles.includes(file)
         })
-
+        
     });
 
-
-    
+    after('teardown', () => {
+        files.forEach((file)=> {
+            fs.unlinkSync(`${downloadDir}/${file}`)
+            
+        });
+        
+    });
 });
