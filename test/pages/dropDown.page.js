@@ -2,14 +2,7 @@ const dropDown = {}
 
 // Locator
 
-dropDown.header = () => { return $('h3') }
-
-dropDown.header = () => { return $('//*[@id="content"]/div/h3') }
-
-
-dropDown.id = () => { return $$('//*[@id="dropdown"]') }
-
-
+dropDown.select = () => { return $('select#dropdown') }
 
 //functions
 
@@ -18,7 +11,7 @@ dropDown.goToDropDown = () => {
 
     browser.url('/dropdown')
 
-    dropDown.header().waitForDisplayed()
+    dropDown.select().waitForDisplayed()
 
     console.log('step: found for drop down page')
 }
