@@ -1,55 +1,28 @@
-import basePage from './base.page'
+const dyn = {}
+
+// Locators
+
+dyn.header = () => { return $('h3') }
+
+dyn.pTags = () => { return $$('//h3/following-sibling::p') }
+
+dyn.aTags = () => { return $$('//h3/following-sibling::a') }
+
+dyn.startBtn = () => { return $('button=Start') }
+
+dyn.helloWorld = () => { return $('//div[@id="finish"]/h4') }
 
 
-class dynamicLoading extends basePage {
+//functions
 
-    get dynamicLoadingHeader() { return $('//*[@id="content"]/div/h3') }
+dyn.goToDynamicLoading = () => {
+    console.log('step: looking for dynamic loading page')
 
-    get dynLoadPara1() { return $('//*[@id="content"]/div/p[1]') }
+    browser.url('/dynamic_loading')
 
-    get dynLoadPara2() { return $('//*[@id="content"]/div/p[2]') }
+    dyn.header().waitForDisplayed()
 
-    get dynLoadEx1() { return $('//*[@id="content"]/div/a[1]') }
-
-    get dynLoadEx2() { return $('//*[@id="content"]/div/a[2]') }
-
-    get dynLoadStartBtn() { return $ ('button=Start') }
-
-    goToDynamicLoading() {
-
-        console.log('step: going to dynamic loading page')
-
-        browser.url('/dynamic_loading')
-
-        this.dynamicLoadingHeader.waitForDisplayed()
-
-        console.log('step: on the dynamic loading page')
-
-    }
-
-    
-
-    clickExampleOne() {
-        this.dynLoadEx1.waitForDisplayed()
-        this.dynLoadEx1.click()
-
-    }
-
-    clickExampleTwo() {
-        this.dynLoadEx2.waitForDisplayed()
-        this.dynLoadEx2.click()
-
-    }
-
-    clickStart() {
-        this.dynLoadStartBtn.waitForDisplayed()
-        this.dynLoadStartBtn.click()
-
-    }
-
-
-
-
+    console.log('step: found for dynamic loading page')
 }
 
-export default new dynamicLoading()
+module.exports = dyn
