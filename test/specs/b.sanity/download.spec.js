@@ -17,7 +17,7 @@ describe('As a user, test ability to download links', () => {
     });
 
     it('When I click on all of the links', () => {
-        download.links().forEach((link)=> {
+        download.link().forEach((link)=> {
 
             if (link.getText() !== 'Elemental Selenium' && !link.getHTML().includes('github')) {
                 
