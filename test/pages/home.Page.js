@@ -9,6 +9,7 @@ homePage.subheader = () => { return $('h2') }
 
 
 
+
 //functions
 
 homePage.goToHomePage = () => {

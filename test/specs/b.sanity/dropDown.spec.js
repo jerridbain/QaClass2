@@ -28,5 +28,3 @@ describe('As a user, test ability to choose option 1 from the dropdown', () => {
     });
     
 });
-
-

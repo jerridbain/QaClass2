@@ -1,13 +1,13 @@
 const homePage = require('../../pages/home.Page')
 
-describe('Smoke test Base page', () => {
+describe('Smoke test Home page', () => {
     
-    it('Given I go to the Base page', () => {
+    it('Given I go to the Home page', () => {
         homePage.goToHomePage();
 
     });
 
-    it('Then validate the Base header exist', () => {
+    it('Then validate the Sub header exist', () => {
         homePage.mainheader().getText().must.equal('Welcome to the-internet')
         
         

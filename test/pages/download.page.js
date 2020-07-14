@@ -1,21 +1,19 @@
-const dol = {}
+const download = {}
 
 // Locator
 
-dol.header = () => { return $('h3') }
-
-dol.header = () => { return $('//*[@id="content"]/div/h3') }
+download.links = () => { return $$('a') }
 
 //functions
 
-dol.goToDownload = () => {
+download.goToDownload = () => {
     console.log('step: looking for download page')
 
     browser.url('/download')
 
-    dol.header().waitForDisplayed()
+    download.links()[0].waitForDisplayed()
 
-    console.log('step: found for download page')
+    console.log('on download page')
 }
 
-module.exports = dol
+module.exports = download

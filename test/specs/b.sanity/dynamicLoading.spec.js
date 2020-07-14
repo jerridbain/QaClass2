@@ -1,4 +1,4 @@
-const dyn = require('../../pages/dynamic.page')
+const dyn = require('../../pages/dynamicLoading.page')
 
 describe('As a User test the dynamic loading page', () => {
 
